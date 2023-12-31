@@ -1,6 +1,5 @@
 import 'dart:async';
-import 'dart:html' as html show window, Navigator;
-
+import 'package:web/helpers.dart' as web;
 import 'package:device_info_plus_platform_interface/device_info_plus_platform_interface.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
@@ -11,13 +10,13 @@ class DeviceInfoPlusWebPlugin extends DeviceInfoPlatform {
   /// Constructs a DeviceInfoPlusPlugin.
   DeviceInfoPlusWebPlugin(navigator) : _navigator = navigator;
 
-  final html.Navigator _navigator;
+  final web.Navigator _navigator;
 
   /// Factory method that initializes the DeviceInfoPlus plugin platform
   /// with an instance of the plugin for the web.
   static void registerWith(Registrar registrar) {
     DeviceInfoPlatform.instance =
-        DeviceInfoPlusWebPlugin(html.window.navigator);
+        DeviceInfoPlusWebPlugin(web.window.navigator);
   }
 
   @override
